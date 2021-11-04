@@ -14,7 +14,7 @@ INCLUDE_PATHS = -Iinclude -ID:/Programming/libraries/msys2/mingw64/include
 #LIBRARY_PATHS = -Llib -L/usr/local/lib
 # Windows LIBRARY_PATHS
 LIBRARY_PATHS = -Llib -LD:/Programming/libraries/msys2/mingw64/lib
-COMPILER_FLAGS = -std=c++11 -Wall -O0 -g
+COMPILER_FLAGS = -std=c++11 -Wall -Wextra -pedantic -O0 -g
 LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 # Om SDL2 används, Mac LINKER_FLAGS!
 #LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
