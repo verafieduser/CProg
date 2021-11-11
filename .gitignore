@@ -4,6 +4,7 @@ target/
 .classpath
 .project
 .vscode/
+test/.vscode/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
