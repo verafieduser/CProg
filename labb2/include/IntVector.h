@@ -18,10 +18,10 @@ private:
 	friend std::ostream &operator<<(std::ostream &os, const IntVector &intArray);
 };
 
-inline std::ostream& operator<< (std::ostream &out, const IntVector& intArray) { //ska det vara "const IntVector& intArray"?
+inline std::ostream& operator<< (std::ostream &out, const IntVector& intArray) { 
     int i;
     int amount_of_ints;
-    for (i = 0, amount_of_ints = intArray.length; i < amount_of_ints; i++){ //varför kan man inte göra size på en const??
+    for (i = 0, amount_of_ints = intArray.length; i < amount_of_ints; i++){
         out << intArray[i] << " ";
     }
     return out;
