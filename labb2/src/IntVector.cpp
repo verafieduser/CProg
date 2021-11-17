@@ -15,7 +15,10 @@ IntVector::IntVector(const std::initializer_list<int>& initlist) : length(0), in
 
 IntVector::IntVector(const IntVector& other) : length(other.length), int_arr(new int[length]){
 
-    std::memcpy(int_arr, other.int_arr, length);
+    for(int i = 0; i < length; i++){
+        int_arr[i] = other.int_arr[i];
+    }
+    // std::memcpy(int_arr, other.int_arr, length);
     
 }
 
@@ -24,7 +27,11 @@ const IntVector& IntVector::operator=(const IntVector& other) {
 		delete[] int_arr;
 		length = other.length;
 		int_arr = new int[other.length];
-        std::memcpy(int_arr, other.int_arr, length);
+        
+        for(int i = 0; i < length; i++){
+            int_arr[i] = other.int_arr[i];
+        }
+        // std::memcpy(int_arr, other.int_arr, length);
 	}
 	return *this;
 }
