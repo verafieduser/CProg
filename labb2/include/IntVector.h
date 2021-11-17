@@ -1,3 +1,5 @@
+//Vera Sol Nygren
+
 class IntVector
 {
 public:
@@ -18,6 +20,7 @@ private:
 	friend std::ostream &operator<<(std::ostream &os, const IntVector &intArray);
 };
 
+//Print method
 inline std::ostream& operator<< (std::ostream &out, const IntVector& intArray) { 
     int i;
     int amount_of_ints;
