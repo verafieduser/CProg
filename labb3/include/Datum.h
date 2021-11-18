@@ -32,8 +32,8 @@ public:
     const bool operator>=(const Datum &other);
     const bool operator==(const Datum &other);
     const bool operator!=(const Datum &other);
-    const void operator++();
-    const void operator++(int dummy);
+    const Datum operator++();
+    const Datum operator++(int dummy);
     const Datum operator+(const int& dd);
     const Datum operator+=(const int& dd);
     
@@ -45,10 +45,11 @@ public:
     bool end_of_month(int) const;  // Är dagen den sista i månaden?
 };
 
-// Datum operator+(int num, const Datum& date){
-//     for(int i = 0; i < num; i++){
-//         //date.step_one_day;
-//     }
-// }
+//trasig
+Datum operator+(int num, const Datum& date){
+    for(int i = 0; i < num; i++){
+        //date.step_one_day;
+    }
+}
 
 #endif

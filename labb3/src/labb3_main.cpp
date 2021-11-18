@@ -11,11 +11,12 @@ void max_print()
 {
   Datum dat1; // defaults to 1 January, 2000
   Datum dat2( 2019, 8, 31 ); // Augusti 31, 2019
-  
+  std::cout << "test";
   std::cout << "dat1 är " << dat1 << "\ndat2 är " << dat2 << std::endl;;
   std::cout << "\ndat1 += 7 är ";
   std::cout << ( dat1 += 7 ) << std::endl;
   
+    std::cout << "test2";
   std::cout << "dat1 + 2 dagar blir ";
   std::cout << dat1 + 2 << " (ej tilldelning)" << std::endl;
   std::cout << "2 dagar + dat1 + 2 dagar blir ";
@@ -196,7 +197,7 @@ int main(int argc, const char * argv[]) {
    */
   
   first_print();
-  //max_print();
+  max_print();
   //min_print_eval();
   
   return 0;

@@ -89,6 +89,7 @@ bool Datum::end_of_month(int dd) const
         return dd == ANT_DAGAR_PER_MAANAD[month];
 }
 
+//trasig
 const Datum Datum::operator+(const int& dd){
     for(int i = 0; i < dd; i++){
         step_one_day;
@@ -96,6 +97,7 @@ const Datum Datum::operator+(const int& dd){
     return *this;
 }
 
+//trasig
 const Datum Datum::operator+=(const int& dd){
     for(int i = 0; i < dd; i++){
         step_one_day;
@@ -104,13 +106,16 @@ const Datum Datum::operator+=(const int& dd){
 }
 
 
-const void Datum::operator++()
+const Datum Datum::operator++()
 {
     step_one_day();
+    return *this;
 }
-const void Datum::operator++(int dummy)
+
+const Datum Datum::operator++(int dummy)
 {
-        step_one_day();
+    step_one_day();
+    return *this;
 }
 
 // operator<<
