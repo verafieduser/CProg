@@ -23,6 +23,8 @@ public:
   T sok(T value) const;
 
   bool tomt() const { return !rot; };
+
+
   int& varde() const
   {
     koll();
@@ -45,6 +47,8 @@ public:
 private:
   class Nod {
     friend class Trad;
+
+    //bör det vara T istället?
     int data;
     Trad *vanster, *hoger;
     Nod( int d ) : data( d ), vanster( new Trad ), hoger( new Trad ) {};

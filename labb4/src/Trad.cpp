@@ -13,24 +13,19 @@ void Trad::satt_in( T newValue ) const {
     return; 
   }
 
-//fungerar inte pga ordningen ska vara annorlunda... 
-  int data = v_barn().rot.data;
   //typecast data?
-  if(newValue < data){
+  T rotdata = T(rot.data);
+
+  if(newValue < rotdata){
     v_barn().satt_in(newValue);
     return;
   }
 
-  data = rot.data;
-  //typecast data? och ha den som referens
-  if(newValue == data){
-    //behövs inte bytas pga samma
+  if(newValue == rotdata){
     return;
   }
 
-  data = h_barn().rot.data;
-  //typecast data?
-  if(newValue > data){
+  if(newValue > rotdata){
     h_barn().satt_in(newValue);
     return;
   }
@@ -44,13 +39,13 @@ T Trad::sok ( T value ) const {
   }
   //typecast rot.data?
   if(value == rot.data){
-    return 1; //returnera värdet istället? 
+    return value; //returnera värdet istället? 
   }
   int found = v_barn().sok(value);
   if(found != 0){
     return found;
   }
-  
+
   found = h_barn().sok(value);
   return found;
 }
