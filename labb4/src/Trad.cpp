@@ -4,17 +4,16 @@
 #include <iostream>
 #include "Trad.h"
 
-template <typename T>
-void Trad::satt_in( T newValue ) const {
+template <class T>
+void Trad<T>::satt_in( T newValue ) {
   if(tomt()){
     //skapa ny rot-nod,
-    Nod nod (newValue);
-    rot = nod;
+    rot = new Nod(newValue);
     return; 
   }
 
   //typecast data?
-  T rotdata = T(rot.data);
+  T rotdata = T(rot->data);
 
   if(newValue < rotdata){
     v_barn().satt_in(newValue);
@@ -32,16 +31,16 @@ void Trad::satt_in( T newValue ) const {
   
 }
 
-template <typename T>
-T Trad::sok ( T value ) const {
+template <class T>
+T Trad<T>::sok ( T value ) const {
   if(tomt()){
     return 0;
   }
   //typecast rot.data?
-  if(value == rot.data){
+  if(value == rot->data){
     return value; //returnera värdet istället? 
   }
-  int found = v_barn().sok(value);
+  T found = v_barn().sok(value);
   if(found != 0){
     return found;
   }
@@ -51,8 +50,8 @@ T Trad::sok ( T value ) const {
 }
 
 
-
-void Trad::kopiera( const Trad& t)
+template <class T>
+void Trad<T>::kopiera( const Trad<T>& t)
 {
   //std::cout << "*** Trad::kopiera\n";
   if (t.tomt())
@@ -64,8 +63,8 @@ void Trad::kopiera( const Trad& t)
     h_barn().kopiera( t.h_barn());
   }
 }
-
-Trad& Trad::operator= (const Trad& t)
+template <class T>
+Trad<T>& Trad<T>::operator= (const Trad<T>& t)
 {
   //std::cout << "*** Trad::operator=\n";
   if (rot != t.rot)
@@ -76,7 +75,8 @@ Trad& Trad::operator= (const Trad& t)
   return *this;
 }
 
-bool Trad::operator== (const Trad& t) const
+template <class T>
+bool Trad<T>::operator== (const Trad<T>& t) const
 {
   //std::cout << "*** Trad::operator==\n";
   return (tomt() && t.tomt()) ||
@@ -84,7 +84,8 @@ bool Trad::operator== (const Trad& t) const
            v_barn() == t.v_barn() && h_barn() == t.h_barn());
 }
 
-void Trad::skriv_ut() const
+template <class T>
+void Trad<T>::skriv_ut() const
 {
   // traversera igenom trädet rekursivt enligt principen "in-order"
   if (!tomt())
@@ -95,3 +96,6 @@ void Trad::skriv_ut() const
   }
 }
 
+template class Trad<double>;
+template class Trad<int>;
+template class Trad<short>;

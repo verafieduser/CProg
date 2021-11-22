@@ -7,25 +7,22 @@
 
 #include <iostream>
 
-
-class Trad {
+template <class T> class Trad {
   
 public:
-  Trad() : rot(0) {};                    // default konstruktor
-  Trad( int d ) { rot= new Nod(d); };
-  Trad( const Trad& t ) { kopiera(t); };   // kopieringskonstruktor
-  ~Trad() { delete rot; };
-  
-  template <typename T>
-  void satt_in(T newValue) const;
+  Trad<T>() : rot(0) {};                    // default konstruktor
+  Trad<T>( T d ) { rot= new Nod(d); };
+  Trad<T>( const Trad<T>& t ) { kopiera(t); };   // kopieringskonstruktor
+  ~Trad<T>() { delete rot; };
 
-  template <typename T>
-  T sok(T value) const;
+  void satt_in( T newValue);
+
+  T sok( T value) const;
 
   bool tomt() const { return !rot; };
 
 
-  int& varde() const
+  T& varde() const
   {
     koll();
     return rot->data;
@@ -48,10 +45,9 @@ private:
   class Nod {
     friend class Trad;
 
-    //bör det vara T istället?
-    int data;
+    T data;
     Trad *vanster, *hoger;
-    Nod( int d ) : data( d ), vanster( new Trad ), hoger( new Trad ) {};
+    Nod( T d ) : data( d ), vanster( new Trad ), hoger( new Trad ) {};
     ~Nod()
     {
       delete vanster;
@@ -67,5 +63,7 @@ private:
   }
   void kopiera( const Trad& t );
 };
+
+
 
 #endif /* Trad_h */
