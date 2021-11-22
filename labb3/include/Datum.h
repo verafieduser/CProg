@@ -20,7 +20,7 @@ class Datum
     static const std::array<std::string, 13> NAMES;
 
     //OBS. funktionen "step_one_day()" bör vara PRIVATE
-
+    void step_one_day(); // Öka datum med en dag
 
 public:
     Datum();
@@ -34,22 +34,15 @@ public:
     const bool operator!=(const Datum &other);
     const Datum operator++();
     const Datum operator++(int dummy);
-    const Datum operator+(const int& dd);
-    const Datum operator+=(const int& dd);
-    
-    void step_one_day(); // Öka datum med en dag
-
-    //friend int operator+(const Datum &date);
+    const Datum operator+(int dd) const;
+    const Datum operator+=(int dd);
 
     static bool is_skott_aar(int); // Är det skottår?
     bool end_of_month(int) const;  // Är dagen den sista i månaden?
 };
 
-//trasig
-Datum operator+(int num, const Datum& date){
-    for(int i = 0; i < num; i++){
-        //date.step_one_day;
-    }
+inline const Datum operator+(int num, Datum date){
+    return date + num;
 }
 
 #endif

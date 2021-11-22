@@ -157,10 +157,12 @@ void min_print_eval()
   (dat2 <= dat3) ? (std::cout << "Sant") : (std::cout << "Falskt");
   std::cout << std::endl;
   
+
+
   //std::cout << "dat3 <= dat2?(Falskt) ";
   (dat3 <= dat2) ? (std::cout << "Sant") : (std::cout << "Falskt");
   std::cout << std::endl;
-  
+
   //std::cout << "dat2 > dat3? (Falskt)";
   (dat2 > dat3) ? (std::cout << "Sant") : (std::cout << "Falskt");
   std::cout << std::endl;
@@ -172,21 +174,21 @@ void min_print_eval()
 }
 
  
-void first_print()
-{
-  std::cout << "Skapa ett datumobjekt med datum \"28 Februari 2020\" \n -> ";
-  Datum dat1( 2020, 2, 28);
-  std::cout << dat1 << std::endl;
+// void first_print()
+// {
+//   std::cout << "Skapa ett datumobjekt med datum \"28 Februari 2020\" \n -> ";
+//   Datum dat1( 2020, 2, 28);
+//   std::cout << dat1 << std::endl;
   
-  std::cout << "Öka datum med 1 dag (i detta fall skottdag!) \n -> ";
-  dat1.step_one_day();
-  std::cout << dat1 << std::endl;
+//   std::cout << "Öka datum med 1 dag (i detta fall skottdag!) \n -> ";
+//   dat1.step_one_day();
+//   std::cout << dat1 << std::endl;
   
-  std::cout << "Öka datum med 1 dag (i detta fall ny månad!) \n -> ";
-  dat1.step_one_day();
-  std::cout << dat1 << std::endl;
-  std::cout << std::endl;
-}
+//   std::cout << "Öka datum med 1 dag (i detta fall ny månad!) \n -> ";
+//   dat1.step_one_day();
+//   std::cout << dat1 << std::endl;
+//   std::cout << std::endl;
+// }
 
 int main(int argc, const char * argv[]) {
   /* Denna uppgift kan du kompilera och köra från början. Du anropar bara
@@ -196,9 +198,9 @@ int main(int argc, const char * argv[]) {
    * köras, "max_print()" och "first_print()"skall då vara bortkommenterade.
    */
   
-  first_print();
-  max_print();
-  //min_print_eval();
+  // first_print();
+  //max_print();
+  min_print_eval();
   
   return 0;
 }

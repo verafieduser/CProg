@@ -90,17 +90,18 @@ bool Datum::end_of_month(int dd) const
 }
 
 //trasig
-const Datum Datum::operator+(const int& dd){
+const Datum Datum::operator+(int dd) const{
+    Datum d = *this;
     for(int i = 0; i < dd; i++){
-        step_one_day;
+        d.step_one_day();
     }
-    return *this;
+    return d;
 }
 
 //trasig
-const Datum Datum::operator+=(const int& dd){
+const Datum Datum::operator+=(int dd){
     for(int i = 0; i < dd; i++){
-        step_one_day;
+        step_one_day();
     }
     return *this;
 }
@@ -114,8 +115,9 @@ const Datum Datum::operator++()
 
 const Datum Datum::operator++(int dummy)
 {
+    Datum d = *this;
     step_one_day();
-    return *this;
+    return d;
 }
 
 // operator<<
@@ -123,11 +125,6 @@ std::ostream &operator<<(std::ostream &output, const Datum &d)
 {
     output << d.day << ' ' << d.NAMES[d.month] << ' '  << d.year;
     return output;
-}
-
-Datum operator+(const Datum& date){
-    
-    //date.step_one_day;
 }
 
 const bool Datum::operator<(const Datum &other)
@@ -152,14 +149,14 @@ const bool Datum::operator<(const Datum &other)
     {
         return false;
     }
-    if (day <= other.day)
+    else
     {
         return true;
     }
 }
 const bool Datum::operator<=(const Datum &other)
 {
-    if (year <= other.year)
+    if (year < other.year)
     {
         return true;
     }
@@ -167,7 +164,7 @@ const bool Datum::operator<=(const Datum &other)
     {
         return false;
     }
-    if (month <= other.month)
+    if (month < other.month)
     {
         return true;
     }
@@ -179,7 +176,7 @@ const bool Datum::operator<=(const Datum &other)
     {
         return true;
     }
-    if (day > other.day)
+    else
     {
         return false;
     }
@@ -205,8 +202,7 @@ const bool Datum::operator>(const Datum &other)
     if (day > other.day)
     {
         return true;
-    }
-    if (day <= other.day)
+    }else
     {
         return false;
     }
@@ -233,7 +229,7 @@ const bool Datum::operator>=(const Datum &other)
     {
         return true;
     }
-    if (day < other.day)
+    else
     {
         return false;
     }
