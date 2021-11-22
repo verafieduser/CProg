@@ -17,10 +17,10 @@
 template <typename T>
 void inmatning( Trad<T>& t )
 {
-  int i;
+  T i;
   std::cout << "Mata in tal: "; std::cin >> i; //2
   if ( t.sok( i ) )
-    std::cout << "Finns redan i trädet!" << std::endl;
+    std::cout << "\nFinns redan i trädet!" << std::endl;
   else
     t.satt_in( i );
 }
